@@ -3,9 +3,15 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'clicker-app',
+    podModulePrefix: 'clicker-app/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline'",
+      'script-src': "'self' 'unsafe-eval'localhost",
+      'connect-src': "'self' localhost:3000 localhost:4200",
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

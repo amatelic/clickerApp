@@ -1,0 +1,24 @@
+<div class="col-md-6">
+  <h4 class="text-center">User info:</h4>
+  <div class="form-group center-block">
+    <img class="center-block img-circle" src="{{ user.image }}">
+  </div>
+  <div class="form-group center-block">
+    <hr>
+    <p class="text-center">Name: {{ user.name }}</p>
+    <hr>
+    <p class="text-center">Mail: {{ user.email }}</p>
+    <hr>
+    <p class="text-center">User from : {{ user.created }}</p>
+    <hr>
+    <div class="entry">
+    {{#if user.active}}
+      <button {{ action 'toggleUser' }}class="center-block btn btn-success">Active</button>
+    {{else}}
+      <button {{ action 'toggleUser' }} class="center-block btn btn-danger">Inactive</button>
+    {{/if}}
+  </div>
+    <hr>
+  </div>
+</div>
+{{yield}}

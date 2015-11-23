@@ -1,0 +1,40 @@
+(function (arguments) {
+  var body = document.querySelector('body');
+  var config = {
+    data: [],
+    userId: 'anze1234',
+    time: createUrl(),
+  };
+
+  body.addEventListener('click', saveClickData, false);
+  function saveClickData(e) {
+    config.data.push({x:e.clientX, y:e.clientY});
+  }
+
+  setInterval(function() {
+    makeRequest('http://localhost:3000/data', config);
+    config.data = [];
+  }, 5000);
+})();
+
+function makeRequest(url, data) {
+  var httpRequest;
+  httpRequest = new XMLHttpRequest();
+
+  if (!httpRequest) {
+    console.error('Request with clickApp not working!');
+    return false;
+  }
+
+  httpRequest.open('POST', url);
+  httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  httpRequest.setRequestHeader('Access-Control-Allow-Origin', '*');
+  httpRequest.send('userID=' + data.userId + '&time=' + data.time + '&data=' + JSON.stringify(data.data));
+}
+
+function createUrl() {
+  return new Date().getTime();
+}
+
+//TODO 1 create unic data for every person
+//TODO 2 detect if screen changes

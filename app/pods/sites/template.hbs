@@ -1,0 +1,25 @@
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Id:</td>
+          <td>Name:</td>
+          <td>Created at:</td>
+        </tr>
+      </thead>
+      <tbody >
+        {{#each model as |site index|}}
+          <tr {{action 'transitionToPage' index}}>
+            <td>{{index}}</td>
+            <td><p>{{site.name}}</p></td>
+            <td>{{site.updated}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    Extra data:
+
+  </div>
+{{outlet}}
