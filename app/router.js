@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('sites');
   this.route('page', {path: 'sites/:id'});
   this.route('settings');
+  this.route('login');
 });
 
 export default Router;

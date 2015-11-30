@@ -4,8 +4,9 @@ export default Ember.Component.extend({
   actions: {
     //changing user accaunt
     toggleUser() {
-      let user = this.get('user.active');
-      this.set('user.active', !user);
+      let user = !this.get('user.active');
+      this.set('user.active', user);
+      this.sendAction('action', user);
     },
   },
 });

@@ -1,6 +1,4 @@
 import Ember from 'ember';
-import moment from 'moment';
-import  {ajax}  from 'ic-ajax';
 
 export default Ember.Route.extend({
   model(params) {
@@ -8,10 +6,8 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    loading(transition, originRoute) {
-    },
 
-    error(error, transition) {
+    error(error) {
       if (error && error.status === 400) {
         return this.transitionTo('404');
       }

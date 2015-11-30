@@ -11,4 +11,11 @@ export default Ember.Route.extend({
       userId: '#4321',
     };
   },
+
+  actions: {
+    updateActivation(status) {
+      //Todo 1: send data to server
+      //Todo 2: display changes to ui
+    },
+  },
 });

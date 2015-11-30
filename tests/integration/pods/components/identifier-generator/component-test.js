@@ -6,20 +6,27 @@ moduleForComponent('identifier-generator', 'Integration | Component | identifier
 });
 
 test('it renders', function(assert) {
-  
+
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
 
   this.render(hbs`{{identifier-generator}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Create button');
 
   // Template block usage:" + EOL +
   this.render(hbs`
     {{#identifier-generator}}
-      template block text
     {{/identifier-generator}}
   `);
+});
 
-  assert.equal(this.$().text().trim(), 'template block text');
+test('click on button', function(assert) {
+  var model = {id: '#1234'};
+  this.set('model', model);
+  this.render(hbs`
+    {{identifier-generator id=model.id}}
+  `);
+  this.$('button').click();
+  assert.notEqual(this.$('#code-form').text().trim(), "".trim());
 });
