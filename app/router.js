@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('page', {path: 'sites/:id'});
   this.route('settings');
   this.route('login');
+  this.route('registration');
 });
 
 export default Router;
