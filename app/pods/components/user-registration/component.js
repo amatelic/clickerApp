@@ -11,40 +11,36 @@ export default Ember.Component.extend({
 
   actions: {
     correctName(e) {
-      clearTimeout(this.timer);
-      this.timer = setTimeout(() => {
-        console.log('To dela');
-      }, 1050);
-
+      console.log('To dela');
     },
 
-    correctUsername(value) {
+    correctUsername(value) {},
 
-    },
+    emailCheck(value) {},
 
-    emailCheck(value) {
-
-    },
-
-    correctPassword(value) {
-
-    },
+    correctPassword(value) {},
 
     createUser(e) {
       //loop all inputs
+
+      //Change code complityl
+      var user = [];
       let actionMethod = Object.keys(this.actions);
       actionMethod.pop();
       this.allInputs.each((i,d) => {
         if (actionMethod.length > i) {
-          let input = this.allInputs.eq(i);
-          if (!d.value && input.find('p')) {
-            let error = this.createError('test');
-            input.after(this.createError('Field is empty'));
-          }
-
-          this.actions[actionMethod[i]].call(this, d);
+          // let input = this.allInputs.eq(i);
+          // if (!d.value && input.find('p')) {
+          //   let error = this.createError('test');
+          //   input.after(this.createError('Field is empty'));
+          // }
+          //
+          // this.actions[actionMethod[i]].call(this, d);
+          user.push(d.value);
         }
+
       });
+      this.sendAction('action', user);
     },
   },
 

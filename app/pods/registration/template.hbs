@@ -1,7 +1,25 @@
 <div class="container container-table">
     <div class="row vertical-center-row">
         <div class="text-center col-md-4 col-md-offset-4">
-          {{user-registration}}
+          {{#each errors}}
+            <li>
+              {{titleize attribute}} {{message}}
+            </li>
+          {{/each}}
+          {{user-registration action="createNewUser"}}
         </div>
     </div>
+    {{#if errors.length}}
+      <div class="alert alert-danger">
+        <h4>There was a problem</h4>
+        <ul>
+          {{#each errors}}
+            <li>
+              {{titleize attribute}} {{message}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+
 </div>
