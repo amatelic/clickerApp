@@ -14,10 +14,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active">{{#link-to 'sites'}} Sites{{/link-to}}</li>
-        <li>{{#link-to 'settings'}}Settings{{/link-to}}</li>
-        <li>{{#link-to 'registration'}}Registration{{/link-to}}</li>
-        <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+        {{#link-to "sites" tagName="li" href=false}}
+          <a {{bind-attr href="view.href"}}>Sites</a>
+        {{/link-to}}
+        {{#link-to "settings" tagName="li" href=false}}
+          <a {{bind-attr href="view.href"}}>Settings</a>
+        {{/link-to}}
+        {{#link-to "registration" tagName="li" href=false}}
+          <a {{bind-attr href="view.href"}}>Registraton</a>
+        {{/link-to}}
+        {{#link-to "login" tagName="li" href=false}}
+          <a {{bind-attr href="view.href"}}>Login</a>
+        {{/link-to}}
       </ul>
 
     </div><!-- /.navbar-collapse -->

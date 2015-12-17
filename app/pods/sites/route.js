@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.query('sites', {});
+    //this.store.query('sites', {});
+    return [1,2,3,4,5];
   },
 
   actions: {
