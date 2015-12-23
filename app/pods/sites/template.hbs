@@ -7,14 +7,12 @@
           <td>Created at:</td>
         </tr>
       </thead>
-      <tbody >
-        {{#each model as |site index|}}
-          <tr {{action 'transitionToPage' index}}>
-            <td>{{index}}</td>
-            <td><p>{{site.name}}</p></td>
-            <td>{{site.updated}}</td>
-          </tr>
-        {{/each}}
+      <tbody>
+        <tr {{action 'transitionToPage' model.id}}>
+          <td>{{model.id}}</td>
+          <td><a href="{{model.sites}}">{{model.sites}}</a></td>
+          <td><p>{{model.createdat}}</p></td>
+        </tr>
       </tbody>
     </table>
   </div>

@@ -10,7 +10,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
       'script-src': "'self' 'unsafe-eval'localhost",
-      'connect-src': "'self' localhost:3000 localhost:4200",
+      'connect-src': "'self' localhost:3000 localhost:4200 clickerApp.dev",
     },
     EmberENV: {
       FEATURES: {

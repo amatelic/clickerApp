@@ -2,13 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   actions: {
-    logIn(email, username) {
-      console.log(email. username);
-      let users = this.store.query('user', { email, password }).then(() => {
-        console.log('To dela');
-      }).catch(function (error) {
-        console.log(error);
-      });
+    //used for intersecting the change of changes
+    willTransition(transition) {
+      // var answer = prompt('Do you went to redirect to other site [y/n]');
+      // if (answer !== 'y') transition.abort();
+    },
+
+    login(email, username) {
+      Ember.$.post('http://clickerapp.dev/users', {email, username}).then((response) => {
+        let user = this.store.push(response.data);
+        this.transitionTo('sites');
+
+      }, (error) => console.error(error));
     },
   },
 });

@@ -2,11 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    //this.store.query('sites', {});
-    return [1,2,3,4,5];
+    return this.store.peekRecord('user', 1);
   },
 
   actions: {
+    loading(a, b, c) {
+      console.log('Loading');
+    },
+
     transitionToPage(id) {
       this.transitionTo(`/sites/${id}`);
     },
